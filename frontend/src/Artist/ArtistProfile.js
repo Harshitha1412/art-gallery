@@ -42,7 +42,7 @@ const ArtistProfilePage = () => {
 
     // Fetch artist details from the API
     axios
-      .get(`http://localhost:8080/api/artists/${artistId}`)
+      .get(`https://springboot-production-4925.up.railway.app/api/artists/${artistId}`)
       .then((response) => {
         setArtistDetails(response.data);
         // Simulating fetching statistics (replace with actual data)
@@ -73,7 +73,7 @@ const ArtistProfilePage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/artists/update/${artistId}`,
+        `https://springboot-production-4925.up.railway.app/api/artists/update/${artistId}`,
         formData,
         {
           headers: {
@@ -97,7 +97,7 @@ const ArtistProfilePage = () => {
 
   const fetchUpdatedProfile = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/artists/${artistId}`);
+      const response = await axios.get(`https://springboot-production-4925.up.railway.app/api/artists/${artistId}`);
       setArtistDetails(response.data);
     } catch (error) {
       setErrorMessage("Failed to fetch updated profile.");
@@ -133,7 +133,7 @@ const ArtistProfilePage = () => {
               <img
                 src={
                   artistDetails.imagePath
-                    ? `http://localhost:8080${artistDetails.imagePath}?${new Date().getTime()}`
+                    ? `https://springboot-production-4925.up.railway.app${artistDetails.imagePath}?${new Date().getTime()}`
                     : "/default-avatar.jpg"
                 }
                 alt="Profile"

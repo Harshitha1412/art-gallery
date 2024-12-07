@@ -39,7 +39,7 @@ export default function CartPage() {
     try {
       const detailedItems = await Promise.all(
         savedCart.map(async (item) => {
-          const response = await fetch(`http://localhost:8080/api/artworks/${item.id}`);
+          const response = await fetch(`https://springboot-production-4925.up.railway.app/api/artworks/${item.id}`);
           if (response.ok) {
             const data = await response.json();
             return { ...item, imageUrl: data.imagePath }; // Append image URL from backend
@@ -126,7 +126,7 @@ export default function CartPage() {
 
     // Update user orders count (fetch current orders from backend and update)
     const userId = localStorage.getItem('userId');
-    fetch(`http://localhost:8080/api/users/${userId}`, {
+    fetch(`https://springboot-production-4925.up.railway.app/api/users/${userId}`, {
       method: 'PATCH', // Assuming PATCH for updating the user's order count
       headers: {
         'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ export default function CartPage() {
         {cartItems.map((item) => (
           <div key={item.id} className="cart-item">
             <div className="cart-item-image-container">
-              <img src={`http://localhost:8080${item.imageUrl}`} alt={item.artist} className="cart-item-image" />
+              <img src={`https://springboot-production-4925.up.railway.app${item.imageUrl}`} alt={item.artist} className="cart-item-image" />
             </div>
             <div className="cart-item-details">
               <h2>{item.artist}</h2>

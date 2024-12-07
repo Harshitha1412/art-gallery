@@ -22,16 +22,16 @@ const Login = () => {
     // Determine the login URL based on the selected role
     switch (role) {
       case 'ADMIN':
-        loginUrl = 'https://springboot.up.railway.app/api/admin/login';
+        loginUrl = 'https://springboot-production-4925.up.railway.app/api/admin/login';
         break;
       case 'ARTIST':
-        loginUrl = 'https://springboot.up.railway.app/api/artists/login';
+        loginUrl = 'https://springboot-production-4925.up.railway.app/api/artists/login';
         break;
       case 'CURATOR':
-        loginUrl = 'https://springboot.up.railway.app/api/curators/login';
+        loginUrl = 'https://springboot-production-4925.up.railway.app/api/curators/login';
         break;
       case 'VISITOR':
-        loginUrl = 'https://springboot.up.railway.app/api/login';
+        loginUrl = 'https://springboot-production-4925.up.railway.app/api/login';
         break;
       default:
         setErrorMessage('Invalid role');

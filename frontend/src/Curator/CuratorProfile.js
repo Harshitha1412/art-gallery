@@ -39,7 +39,7 @@ const CuratorProfilePage = () => {
 
   const fetchCuratorDetails = () => {
     axios
-      .get(`http://localhost:8080/api/curators/${curatorId}`)
+      .get(`https://springboot-production-4925.up.railway.app/api/curators/${curatorId}`)
       .then((response) => {
         setCuratorDetails(response.data);
         setErrorMessage("");
@@ -52,7 +52,7 @@ const CuratorProfilePage = () => {
 
   const fetchExhibitions = () => {
     axios
-      .get(`http://localhost:8080/api/exhibitions`)
+      .get(`https://springboot-production-4925.up.railway.app/api/exhibitions`)
       .then((response) => {
         const exhibitions = response.data;
         const organizedCount = exhibitions.filter(
@@ -84,7 +84,7 @@ const CuratorProfilePage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/curators/update/${curatorId}`,
+        `https://springboot-production-4925.up.railway.app/api/curators/update/${curatorId}`,
         formData,
         {
           headers: {
@@ -144,7 +144,7 @@ const CuratorProfilePage = () => {
               <img
                 src={
                   curatorDetails.imagePath
-                    ? `http://localhost:8080${curatorDetails.imagePath}?${new Date().getTime()}`
+                    ? `https://springboot-production-4925.up.railway.app${curatorDetails.imagePath}?${new Date().getTime()}`
                     : "/default-avatar.jpg"
                 }
                 alt="Profile"

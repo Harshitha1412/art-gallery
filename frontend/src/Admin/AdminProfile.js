@@ -25,7 +25,7 @@ const AdminProfilePage = () => {
     }
 
     axios
-      .get(`http://localhost:8080/api/admin/${adminId}`)
+      .get(`https://springboot.up.railway.app/api/admin/${adminId}`)
       .then((response) => {
         setAdminDetails(response.data);
       })
@@ -52,7 +52,7 @@ const AdminProfilePage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/admin/update/${adminId}`,
+        `https://springboot.up.railway.app/api/admin/update/${adminId}`,
         formData,
         {
           headers: {
@@ -77,7 +77,7 @@ const AdminProfilePage = () => {
   const fetchUpdatedProfile = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/admin/${adminId}`
+        `https://springboot.up.railway.app/api/admin/${adminId}`
       );
       setAdminDetails(response.data);
     } catch (error) {
@@ -96,7 +96,7 @@ const AdminProfilePage = () => {
               <img
                 src={
                   adminDetails.imagePath
-                    ? `http://localhost:8080${adminDetails.imagePath}?${new Date().getTime()}`
+                    ? `https://springboot.up.railway.app${adminDetails.imagePath}?${new Date().getTime()}`
                     : "/default-avatar.jpg"
                 }
                 alt="Profile"

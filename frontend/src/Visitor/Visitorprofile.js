@@ -24,7 +24,7 @@ const UserProfilePage = () => {
     }
 
     axios
-      .get(`http://localhost:8080/api/users/${userId}`)
+      .get(`https://springboot-production-4925.up.railway.app/api/users/${userId}`)
       .then((response) => {
         setUserDetails(response.data);
       })
@@ -53,7 +53,7 @@ const UserProfilePage = () => {
   
     try {
       const response = await axios.put(
-        `http://localhost:8080/api/update/${userId}`,
+        `https://springboot-production-4925.up.railway.app/api/update/${userId}`,
         formData,
         {
           headers: {
@@ -78,7 +78,7 @@ const UserProfilePage = () => {
   const fetchUpdatedProfile = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/users/${userId}`
+        `https://springboot-production-4925.up.railway.app/api/users/${userId}`
       );
       setUserDetails(response.data);
     } catch (error) {
@@ -97,7 +97,7 @@ const UserProfilePage = () => {
               <img
                 src={
                   userDetails.imagePath
-                    ? `http://localhost:8080${userDetails.imagePath}?${new Date().getTime()}`
+                    ? `https://springboot-production-4925.up.railway.app${userDetails.imagePath}?${new Date().getTime()}`
                     : "/default-avatar.jpg"
                 }
                 alt="Profile"

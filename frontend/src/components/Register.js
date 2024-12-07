@@ -50,13 +50,13 @@ const Register = () => {
   
     let registerUrl = '';
     if (role === 'ADMIN') {
-      registerUrl = 'http://localhost:8080/api/admin/register';
+      registerUrl = 'https://springboot.up.railway.app/api/admin/register';
     } else if (role === 'ARTIST') {
-      registerUrl = 'http://localhost:8080/api/artists/register';
+      registerUrl = 'https://springboot.up.railway.app/api/artists/register';
     } else if (role === 'CURATOR') {
-      registerUrl = 'http://localhost:8080/api/curators/register';
+      registerUrl = 'https://springboot.up.railway.app/api/curators/register';
     } else {
-      registerUrl = 'http://localhost:8080/api/register'; // For default visitor role
+      registerUrl = 'https://springboot.up.railway.app/api/register'; // For default visitor role
     }
 
     try {

@@ -7,7 +7,7 @@ const ManageExhibitions = () => {
 
   // Fetch exhibitions when the component mounts
   useEffect(() => {
-    fetch("http://localhost:8080/api/exhibitions")
+    fetch("https://springboot-production-4925.up.railway.app/api/exhibitions")
       .then((response) => response.json())
       .then((data) => setExhibitions(data))
       .catch((error) => console.error("Error fetching exhibitions:", error));
@@ -19,7 +19,7 @@ const ManageExhibitions = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/exhibitions/${selectedExhibition.id}`,
+        `https://springboot-production-4925.up.railway.app/api/exhibitions/${selectedExhibition.id}`,
         {
           method: "PUT",
           headers: {

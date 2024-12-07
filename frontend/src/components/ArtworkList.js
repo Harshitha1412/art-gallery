@@ -33,7 +33,7 @@ export default function ArtworkList() {
   // Fetch artworks from the API
   const fetchArtworks = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/artworks');
+      const response = await fetch('https://springboot-production-4925.up.railway.app/api/artworks');
       if (response.ok) {
         const data = await response.json();
         setArtworks(data); // Set artworks data

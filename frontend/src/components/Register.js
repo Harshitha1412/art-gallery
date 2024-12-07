@@ -50,13 +50,13 @@ const Register = () => {
   
     let registerUrl = '';
     if (role === 'ADMIN') {
-      registerUrl = 'https://springboot.up.railway.app/api/admin/register';
+      registerUrl = 'https://springboot-production-4925.up.railway.app/api/admin/register';
     } else if (role === 'ARTIST') {
-      registerUrl = 'https://springboot.up.railway.app/api/artists/register';
+      registerUrl = 'https://springboot-production-4925.up.railway.app/api/artists/register';
     } else if (role === 'CURATOR') {
-      registerUrl = 'https://springboot.up.railway.app/api/curators/register';
+      registerUrl = 'https://springboot-production-4925.up.railway.app/api/curators/register';
     } else {
-      registerUrl = 'https://springboot.up.railway.app/api/register'; // For default visitor role
+      registerUrl = 'https://springboot-production-4925.up.railway.app/api/register'; // For default visitor role
     }
 
     try {

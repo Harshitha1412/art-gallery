@@ -28,7 +28,7 @@ export default function AddArtwork() {
     formData.append('image', image);
 
     try {
-      const response = await fetch('https://springboot.up.railway.app/api/artworks', { // Ensure the correct URL
+      const response = await fetch('https://springboot-production-4925.up.railway.app/api/artworks', { // Ensure the correct URL
         method: 'POST',
         body: formData,
       });

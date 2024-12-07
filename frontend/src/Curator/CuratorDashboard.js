@@ -7,7 +7,7 @@ const CuratorDashboard = () => {
 
   // Fetch data from the backend when the component mounts
   useEffect(() => {
-    fetch('http://localhost:8080/api/exhibitions') // Adjust backend API endpoint as needed
+    fetch('https://springboot-production-4925.up.railway.app/api/exhibitions') // Adjust backend API endpoint as needed
       .then((response) => response.json())
       .then((data) => {
         setTotalExhibitions(data.length);

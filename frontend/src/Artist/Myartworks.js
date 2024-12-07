@@ -17,7 +17,7 @@ export default function MyArtworks() {
     }
 
     // Fetch artist details to identify the logged-in artist
-    fetch(`http://localhost:8080/api/artists/${artistId}`)
+    fetch(`https://springboot.up.railway.app/api/artists/${artistId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch artist details');
@@ -36,7 +36,7 @@ export default function MyArtworks() {
 
   // Fetch artworks from the backend and filter them based on the logged-in artist
   const fetchArtworks = (artistName) => {
-    fetch('http://localhost:8080/api/artworks')
+    fetch('https://springboot.up.railway.app/api/artworks')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to fetch artworks');

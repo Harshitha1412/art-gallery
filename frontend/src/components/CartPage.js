@@ -87,7 +87,6 @@ export default function CartPage() {
     });
   };
 
-  // Handle placing the order
   const placeOrder = () => {
     if (!paymentDetails.paymentMode) {
       alert('Please select a payment mode.');
@@ -112,12 +111,18 @@ export default function CartPage() {
       return;
     }
 
-    // Clear cart from localStorage
-    localStorage.setItem('cartItems', JSON.stringify([]));
-    setCartItems([]); // Clear cart from state
+    // Store the current totals for the alert and post-order action
+    const subtotal = cartItems.reduce((acc, item) => acc + parseFloat(item.cost), 0);
+    const gst = subtotal * 0.10; // 10% GST
+    const tax = subtotal * 0.05; // 5% Tax
+    const total = subtotal + gst + tax;
 
     // Simulate successful order
     setOrderSuccess(true);
+
+    // Clear cart from localStorage
+    localStorage.setItem('cartItems', JSON.stringify([]));
+    setCartItems([]); // Clear cart from state
 
     // Update user orders count (fetch current orders from backend and update)
     const userId = localStorage.getItem('userId');
@@ -130,23 +135,15 @@ export default function CartPage() {
     })
       .then(response => response.json())
       .then(() => {
+        // Show alert for order success
+        alert(`Order placed successfully! \nSubtotal: ₹${subtotal.toFixed(2)}\nGST (10%): ₹${gst.toFixed(2)}\nTax (5%): ₹${tax.toFixed(2)}\nTotal: ₹${total.toFixed(2)}`);
+
         // Optionally, you can redirect the user to another page or show a success message
         setTimeout(() => setOrderSuccess(false), 3000); // Hide success message after 3 seconds
       })
       .catch(error => console.error('Error updating orders:', error));
-  };
+};
 
-  if (!isLoggedIn) {
-    return <p style={{ textAlign: 'center' }}>Please log in to access the cart items.</p>;
-  }
-
-  if (loading) {
-    return <p style={{ textAlign: 'center' }}>Loading your cart...</p>;
-  }
-
-  if (cartItems.length === 0) {
-    return <p style={{ textAlign: 'center' }}>Your cart is empty.</p>;
-  }
 
   return (
     <div>
@@ -271,8 +268,9 @@ export default function CartPage() {
           <button type="button" onClick={placeOrder}>
             Place Order
           </button>
+          
         </form>
-
+        
         {orderSuccess && (
           <p style={{ color: 'green', textAlign: 'center' }}>Order placed successfully!</p>
         )}

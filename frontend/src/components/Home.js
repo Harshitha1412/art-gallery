@@ -49,12 +49,7 @@ const Home = () => {
         Login or Register to curate your own gallery, save favorites, and discover the artists behind each masterpiece.
       </p>
 
-      {/* Login/Signup Button */}
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <button onClick={openLoginModal} style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>
-          Login / Signup
-        </button>
-      </div>
+      
 
       {/* New Arrivals Section */}
       <div className="new-arrivals-section">

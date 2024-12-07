@@ -6,7 +6,7 @@ const ExhibitionHighlights = () => {
 
   // Fetch all exhibitions on component mount
   useEffect(() => {
-    fetch("http://localhost:8080/api/exhibitions") // Adjust backend API endpoint as needed
+    fetch("https://springboot-production-4925.up.railway.app/api/exhibitions") // Adjust backend API endpoint as needed
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch exhibitions.");
